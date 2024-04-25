@@ -12,10 +12,9 @@ class Dosen extends Model
     protected $table = 'dosen';
 
     protected $primaryKey = 'id_dosen';
-
-    // public function ktm(){
-    //     return $this->hasOne(Ktm::class, 'id_mahasiswa');
-    // }
     public $timestamps = false;
+
+    protected $fillable = ['id_dosen', 'nama', 'jurusan', 'alamat'];
+    
 
 }
