@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\Dosen2Controller;
 
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,10 @@ Route::get('/', function () {
         'isi_data' => 'Halaman Awal'
     ]);
 });
-Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('index');
+Route::get('/mahasiswa/create', [MahasiswaController::class, 'create'])->name('create');
 Route::get('/dosen', [DosenController::class, 'index']);
-
+Route::get('/dosen2', [Dosen2Controller::class, 'index']);
+Route::post('/mahasiswa/store', [MahasiswaController::class, 'store'])->name('store');
+Route::get('/mahasiswa/edit/{id_mahasiswa}', [MahasiswaController::class, 'edit'])->name('edit');
+Route::put('/mahasiswa/update/{id_mahasiswa}', [MahasiswaController::class, 'update'])->name('update');
