@@ -3,7 +3,7 @@
 @section('container')
     <h1 class="text-center">Data Mahasiswa</h1>
     <div class="mb-4">
-    <a href="mahasiswa/create"<button type="button" class="btn btn-success">Tambah Data</button></a>
+    <a href="mahasiswa/create"><button type="button" class="btn btn-success">Tambah Data</button></a>
     </div>
     <div class="row">
         <table class="table">
@@ -29,7 +29,11 @@
                 {{-- <td>{{$mhs->ktm->nomor_identitas}}</td> --}}
                 <td>
                     <a href="{{route('edit' , $mhs->id_mahasiswa)}}"><button type="button" class="btn btn-primary">Update</button></a>
-                    <button type="button" class="btn btn-danger">Hapus</button>
+                    <form id="deleteForm{{ $mhs->id_mahasiswa }}" action="{{ route('destroy', $mhs->id_mahasiswa) }}" method="POST" style="display: inline;">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin menghapus data?')">Hapus</button>
+                  </form>
                 </td>
               </tr>
               @endforeach

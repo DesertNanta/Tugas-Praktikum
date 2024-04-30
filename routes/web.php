@@ -29,3 +29,4 @@ Route::get('/dosen2', [Dosen2Controller::class, 'index']);
 Route::post('/mahasiswa/store', [MahasiswaController::class, 'store'])->name('store');
 Route::get('/mahasiswa/edit/{id_mahasiswa}', [MahasiswaController::class, 'edit'])->name('edit');
 Route::put('/mahasiswa/update/{id_mahasiswa}', [MahasiswaController::class, 'update'])->name('update');
+Route::delete('/mahasiswa/{id_mahasiswa}', [MahasiswaController::class, 'destroy'])->name('destroy');
